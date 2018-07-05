@@ -1,4 +1,4 @@
-package com.code;
+package com.code.lamda;
 
 import java.util.Arrays;
 import java.util.List;
