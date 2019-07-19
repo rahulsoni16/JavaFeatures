@@ -8,16 +8,20 @@ public class ExcpetionHandlingExample {
 	int[] someNumbers = { 1, 2, 3, 4 };
 	int key = 0;
 
-	process(someNumbers, key, (a, b) -> wrapperLamda(System.out.println(a / b)));
+	process(someNumbers, key, wrapperLamda((a, b) -> System.out.println(a / b)));
 
     }
 
     private static BiConsumer<Integer, Integer> wrapperLamda(BiConsumer<Integer, Integer> consumer) {
-	try {
-	    consumer.accept(t, u);
-	} catch (ArithmeticException e) {
-	    System.out.println("Exception i ");
-	}
+
+	return (k, v) -> {
+	    System.out.println("Inside wrapper Lamda");
+	    try {
+		consumer.accept(k, v);
+	    } catch (ArithmeticException e) {
+		System.out.println("Exception Inside wrapper Lamda " + e.getMessage());
+	    }
+	};
     }
 
     private static void process(int[] someNumbers, int key, BiConsumer<Integer, Integer> consumer) {
