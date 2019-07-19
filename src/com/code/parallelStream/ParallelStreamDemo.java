@@ -38,5 +38,6 @@ public class ParallelStreamDemo {
 
 	t2 = System.currentTimeMillis();
 	System.out.println("Parallel Stream Time Taken?= " + (t2 - t1));
+
     }
 }
